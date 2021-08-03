@@ -1,0 +1,19 @@
+name: Deploy to Packages
+
+on: 
+  workflow_dispatch:
+    inputs: 
+      repository:
+        description: "Where will it be deployed to"
+        required: true
+        default: "snapshots"
+      version: 
+        description: "The version to deploy"
+        required: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Hello"
