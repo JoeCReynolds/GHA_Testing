@@ -1,21 +1,21 @@
-name: Actions Workflow
+# This is an example of sending a POST request using curl to trigger a repo dispatch
+# TODO: replace :token, :user, and :repo
+# curl -H "Authorization: token :token" \
+#     -H 'Accept: application/vnd.github.everest-preview+json' \
+#     "https://api.github.com/repos/:user/:repo/dispatches" \
+#     -d '{"event_type": "awesomeness", "client_payload": {"foo": "bar"}}'
+
+name: Send Repository Dispatch
 
 on: push
 
 jobs:
-  run-github-actions:
+  run-shell-command:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-      - name: List Files
+      - name: Send Repository Dispatch
         run: |
-          pwd
-          ls -a
-      - name: Simple JS Action
-        id: greet
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: Joe
-      - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}"
+          curl -H "Authorization: token ${{ secrets.REPO_DISPATCH_BUILD }}" \
+              -H 'Accept: application/vnd.github.everest-preview+json' \
+              "https://api.github.com/repos/JoeCReynolds/GHA_Testing_2/dispatches" \
+              -d '{"event_type": "build"}'
