@@ -10,7 +10,7 @@ name: Send Repository Dispatch
 on: push
 
 jobs:
-  run-shell-command:
+  Remote_Workflow_Trigger:
     runs-on: ubuntu-latest
     steps:
       - name: Send Repository Dispatch
