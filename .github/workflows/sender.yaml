@@ -9,7 +9,7 @@ name: Send Repository Dispatch
 
 on: 
   release:
-    types: [created, published, released]
+    types: [published]
 
 jobs:
   Remote_Workflow_Trigger_1:
