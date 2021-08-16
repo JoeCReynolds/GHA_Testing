@@ -13,12 +13,12 @@ on:
       - published
 
 jobs:
-  Remote_Workflow_Trigger:
+  Remote_Workflow_Trigger_1:
     runs-on: ubuntu-latest
     steps:
       - name: Send Repository Dispatch
         env: 
-          TARGET_REPO: https://api.github.com/repos/JoeCReynolds/GHA_Testing_2/dispatches
+          TARGET_REPO: https://api.github.com/repos/JoeCReynolds/GHA_Testing_3/dispatches
         run: |
           release="${{ github.event.release.tag_name }}"
           release="${release:1}"
@@ -26,4 +26,4 @@ jobs:
           curl -H "Authorization: token ${{ secrets.REPO_DISPATCH_BUILD }}" \
               -H 'Accept: application/vnd.github.everest-preview+json' \
               "$TARGET_REPO" \
-              -d '{"event_type": "build", "client_payload": {"new_version": "$release"}}'
+              -d '{"event_type": "update_1", "client_payload": {"new_version": $release}}'
