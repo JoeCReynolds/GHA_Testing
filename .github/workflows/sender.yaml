@@ -15,7 +15,7 @@ jobs:
   Remote_Workflow_Trigger_1:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Repository Dispatch
+      - name: Send Repository Dispatch to Update GHA_Testing_2
         env: 
           TARGET_REPO: https://api.github.com/repos/JoeCReynolds/GHA_Testing_2/dispatches
         run: |
