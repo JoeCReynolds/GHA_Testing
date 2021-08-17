@@ -1,9 +1,9 @@
 # This is an example of sending a POST request using curl to trigger a repo dispatch
-# TODO: replace :token, :user, and :repo
-# curl -H "Authorization: token :token" \
+# Replace <token>, <user>, <repo>
+# curl -H "Authorization: token <token>" \
 #     -H 'Accept: application/vnd.github.everest-preview+json' \
-#     "https://api.github.com/repos/:user/:repo/dispatches" \
-#     -d '{"event_type": "awesomeness", "client_payload": {"foo": "bar"}}'
+#     "https://api.github.com/repos/<user>/<repo>/dispatches" \
+#     -d '{"event_type": "build", "client_payload": {"key": "value"}}'
 
 name: Send Repository Dispatch
 
